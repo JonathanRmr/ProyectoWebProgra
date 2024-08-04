@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CssStyles/eventos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Eventos</h1>
+    <form id="eventoForm" class="mt-4">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+        </div>
+        <div class="form-group">
+            <label for="lugar">Lugar:</label>
+            <input type="text" class="form-control" id="lugar" name="lugar" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+    </form>
+</div>
+<script>
+    $("#eventoForm").on("submit", function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "/evento",
+            method: "POST",
+            data: $(this).serialize(),
+            success: function(response) {
+                alert("Evento guardado correctamente");
+                $("#eventoForm")[0].reset();
+            },
+            error: function(error) {
+                alert("Error al guardar el evento");
+            }
+        });
+    });
+</script>
+</body>
+</html>

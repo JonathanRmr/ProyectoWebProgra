@@ -1,0 +1,40 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1 {
+    color: #bb86fc;
+}
+
+p.lead {
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+ul.list-group {
+    margin-top: 20px;
+}
+
+ul.list-group li {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+}
+
+ul.list-group li a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+ul.list-group li a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+}

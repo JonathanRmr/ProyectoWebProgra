@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciplinas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CssStyles/disciplinas.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Disciplinas</h1>
+    <form id="disciplinaForm" class="mt-4">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select class="form-control" id="tipo" name="tipo" required>
+                <option value="individual">Individual</option>
+                <option value="grupal">Grupal</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+    </form>
+</div>
+<script>
+    $("#disciplinaForm").on("submit", function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "/disciplina",
+            method: "POST",
+            data: $(this).serialize(),
+            success: function(response) {
+                alert("Disciplina guardada correctamente");
+                $("#disciplinaForm")[0].reset();
+            },
+            error: function(error) {
+                alert("Error al guardar la disciplina");
+            }
+        });
+    });
+</script>
+</body>
+</html>
