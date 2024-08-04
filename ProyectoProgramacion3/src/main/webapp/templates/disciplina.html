@@ -27,10 +27,11 @@
     </form>
 </div>
 <script>
+
     $("#disciplinaForm").on("submit", function(e) {
         e.preventDefault();
         $.ajax({
-            url: "/disciplina",
+            URL: '/disciplina',
             method: "POST",
             data: $(this).serialize(),
             success: function(response) {

@@ -12,7 +12,7 @@ import service.DisciplinaService;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/disciplina")
+@WebServlet(name = "disciplina", value = "/disciplina")
 public class DisciplinaServlet extends HttpServlet {
     private DisciplinaService disciplinaService = new DisciplinaService();
     private Gson gson = new Gson();

@@ -31,7 +31,7 @@
     $("#eventoForm").on("submit", function(e) {
         e.preventDefault();
         $.ajax({
-            url: "/evento",
+            URL: "/evento",
             method: "POST",
             data: $(this).serialize(),
             success: function(response) {
